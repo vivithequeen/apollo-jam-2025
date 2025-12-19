@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://dh1blll3nbv1s"
+path="res://.godot/imported/fading-16-1x.png-056c3efe5cd0ad7ea8a3a49f09a914b3.image"
+
+[deps]
+
+source_file="res://resources/shaders/fading-16-1x.png"
+dest_files=["res://.godot/imported/fading-16-1x.png-056c3efe5cd0ad7ea8a3a49f09a914b3.image"]
+
+[params]
+

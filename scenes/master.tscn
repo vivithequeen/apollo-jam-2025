@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhfmn81fkxk0d"]
+
+[ext_resource type="PackedScene" uid="uid://qw2x0bvt0drt" path="res://scenes/main/main.tscn" id="1_aynem"]
+[ext_resource type="Shader" uid="uid://dlcu2c02r2wt2" path="res://resources/color_dither_2d.gdshader" id="1_rnotf"]
+[ext_resource type="Texture2D" uid="uid://bg344q7i32n21" path="res://dither.png" id="2_h2qy3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aynem"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rnotf"]
+shader = ExtResource("1_rnotf")
+shader_parameter/dither_pixel_size = 1.0
+shader_parameter/dither_pixel_offset = Vector2(0, 0)
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_strength = 1.0
+shader_parameter/dither_palette = ExtResource("2_h2qy3")
+shader_parameter/alpha_dither_pixel_offset = Vector2(0, 0)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_aynem"]
+viewport_path = NodePath("SubViewportContainer/SubViewport/main/player/SubViewport")
+
+[node name="master" type="Node"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_aynem")
+offset_right = 480.0
+offset_bottom = 270.0
+scale = Vector2(4, 4)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(480, 270)
+render_target_update_mode = 4
+
+[node name="main" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_aynem")]
+
+[node name="RotationPivot" parent="SubViewportContainer/SubViewport/main/player/ThirdPersonCamera" index="0"]
+transform = Transform3D(0.999983, 0, 0, 0, 0.9397354, 0.34188575, 0, -0.34189522, 0.93970937, 0.260684, 3.9938395, 0)
+
+[node name="OffsetPivot" parent="SubViewportContainer/SubViewport/main/player/ThirdPersonCamera/RotationPivot" index="0"]
+transform = Transform3D(1, 1.4346944e-07, 2.919582e-07, -7.8844437e-07, 1.0009484, 0.00021919608, -5.1922343e-06, -0.00022783875, 1.0008779, 0, 0, 0)
+
+[node name="CameraMarker" parent="SubViewportContainer/SubViewport/main/player/ThirdPersonCamera/RotationPivot/OffsetPivot/CameraSpringArm" index="0"]
+transform = Transform3D(1, -2.3757993e-06, -7.038587e-06, 1.453782e-06, 1.0011144, 0.00023838878, 3.92874e-06, 1.3798475e-05, 1.0020328, -6.854534e-07, -2.2888184e-05, 2.3080437)
+
+[node name="Camera" parent="SubViewportContainer/SubViewport/main/player/ThirdPersonCamera" index="2"]
+transform = Transform3D(1, 1.878295e-08, -5.1605735e-08, 0, 0.9396926, 0.34202012, 5.4917678e-08, -0.34202012, 0.9396926, 0.2606839, 4.783904, 2.17069)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_rnotf")
+offset_right = 480.0
+offset_bottom = 270.0
+scale = Vector2(4, 4)
+mouse_filter = 2
+texture = SubResource("ViewportTexture_aynem")
+
+[editable path="SubViewportContainer/SubViewport/main"]
+[editable path="SubViewportContainer/SubViewport/main/player"]
+[editable path="SubViewportContainer/SubViewport/main/player/ThirdPersonCamera"]

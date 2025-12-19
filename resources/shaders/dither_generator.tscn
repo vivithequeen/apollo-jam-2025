@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctu00vj15remp"]
+
+[ext_resource type="Script" uid="uid://3ebtnk5w86yk" path="res://resources/shaders/dither_palette_generator.gd" id="1_v33u1"]
+[ext_resource type="Image" uid="uid://dh1blll3nbv1s" path="res://resources/shaders/fading-16-1x.png" id="2_x868r"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_v33u1")
+palette_image = ExtResource("2_x868r")
+dither_color_count = 16
