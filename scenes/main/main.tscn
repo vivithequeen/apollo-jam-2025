@@ -1,6 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://qw2x0bvt0drt"]
+[gd_scene load_steps=16 format=4 uid="uid://qw2x0bvt0drt"]
 
 [ext_resource type="PackedScene" uid="uid://b56k3gpos5bfl" path="res://scenes/player/player.tscn" id="1_hyk8p"]
+[ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_6q06x"]
+[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_ow5a4"]
+[ext_resource type="Material" uid="uid://dlnpra47vxyc4" path="res://textures/wood.tres" id="4_ow5a4"]
+[ext_resource type="Material" uid="uid://6owe11smwtek" path="res://textures/wall2.tres" id="5_ow5a4"]
+[ext_resource type="Material" uid="uid://cwq7ajonubir4" path="res://textures/wall1.tres" id="6_hujxm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hyk8p"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -10,24 +15,101 @@ ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 sky_material = SubResource("ProceduralSkyMaterial_hyk8p")
 
 [sub_resource type="Environment" id="Environment_k2fmo"]
-background_mode = 2
+background_mode = 1
 sky = SubResource("Sky_iuonh")
 tonemap_mode = 2
 glow_enabled = true
 adjustment_enabled = true
 
-[node name="main" type="Node3D"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_yyfjg"]
+_surfaces = [{
+"aabb": AABB(-9, 0.5, -1.5, 11, 1e-05, 3),
+"attribute_data": PackedByteArray("AADAPgAAEEAAAMC+AAAQQAAAwL4AAAC/AADAPgAAAL8="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAACAAMA"),
+"material": ExtResource("4_ow5a4"),
+"name": "wood",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAQwQAAAD8AAMA/AAAQwQAAAD8AAMC/AAAAQAAAAD8AAMC/AAAAQAAAAD8AAMA//3////9//7//f////3//v/9/////f/+//3////9//78=")
+}, {
+"aabb": AABB(-9, 0.5, -1.5, 11, 1, 3),
+"attribute_data": PackedByteArray("AAAAPwAAAD4AABDAAAAAPgAAEMAAAAC+AAAAPwAAAL4AAAC/AAAAvgAAEEAAAAC+AAAQQAAAAD4AAAC/AAAAPg=="),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcA"),
+"material": ExtResource("5_ow5a4"),
+"name": "wall2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAQAAAAD8AAMC/AAAQwQAAAD8AAMC/AAAQwQAAwD8AAMC/AAAAQAAAwD8AAMC/AAAAQAAAwD8AAMA/AAAQwQAAwD8AAMA/AAAQwQAAAD8AAMA/AAAAQAAAAD8AAMA//3//f////7//f/9/////v/9//3////+//3//f////7//////AAD/v/////8AAP+//////wAA/7//////AAD/vw==")
+}, {
+"aabb": AABB(-9, 1.5, -1.5, 11, 3, 3),
+"attribute_data": PackedByteArray("AAAAPwAAgL4AABDAAACAvgAAEMAAAIC/AAAAPwAAgL8AAAC/AACAvwAAEEAAAIC/AAAQQAAAgL4AAAC/AACAvg=="),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcA"),
+"material": ExtResource("6_hujxm"),
+"name": "wall1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAQAAAwD8AAMC/AAAQwQAAwD8AAMC/AAAQwQAAkEAAAMC/AAAAQAAAkEAAAMC/AAAAQAAAkEAAAMA/AAAQwQAAkEAAAMA/AAAQwQAAwD8AAMA/AAAAQAAAwD8AAMA//3//f////7//f/9/////v/9//3////+//3//f////7//////AAD/v/////8AAP+//////wAA/7//////AAD/vw==")
+}]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_b1x3f"]
+points = PackedVector3Array(2, 0.5, 1.5, 2, 0, 1.5, -9, 0.5, 1.5, -9, 0, 1.5, 2, 0.5, -1.5, 2, 0, -1.5, -9, 0.5, -1.5, -9, 0, -1.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a8run"]
+points = PackedVector3Array(2, 1.5, -1.5, 2, 0.5, -1.5, -9, 1.5, -1.5, -9, 0.5, -1.5, 2, 1.5, -2, 2, 0.5, -2, -9, 1.5, -2, -9, 0.5, -2)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ouso4"]
+points = PackedVector3Array(2, 4.5, -1.5, 2, 1.5, -1.5, -9, 4.5, -1.5, -9, 1.5, -1.5, 2, 4.5, -2, 2, 1.5, -2, -9, 4.5, -2, -9, 1.5, -2)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_blune"]
+points = PackedVector3Array(2, 4.5, 2, 2, 1.5, 2, -9, 4.5, 2, -9, 1.5, 2, 2, 4.5, 1.5, 2, 1.5, 1.5, -9, 4.5, 1.5, -9, 1.5, 1.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_th5th"]
+points = PackedVector3Array(2, 1.5, 2, 2, 0.5, 2, -9, 1.5, 2, -9, 0.5, 2, 2, 1.5, 1.5, 2, 0.5, 1.5, -9, 1.5, 1.5, -9, 0.5, 1.5)
+
+[node name="main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_k2fmo")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-use_collision = true
-size = Vector3(11, 1, 11)
-
 [node name="player" parent="." instance=ExtResource("1_hyk8p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.260684, 3.191075, 0)
+
+[node name="FuncGodotMap" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+script = ExtResource("2_6q06x")
+local_map_file = "uid://chl043flkghhx"
+map_settings = ExtResource("3_ow5a4")
+metadata/_custom_type_script = "uid://cwu5cf7a0awcd"
+
+[node name="entity_0_worldspawn" type="StaticBody3D" parent="FuncGodotMap"]
+collision_mask = 0
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_0_worldspawn"]
+mesh = SubResource("ArrayMesh_yyfjg")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_b1x3f")
+
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_a8run")
+
+[node name="entity_0_brush_2_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_ouso4")
+
+[node name="entity_0_brush_3_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_blune")
+
+[node name="entity_0_brush_4_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_th5th")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.5, 0)
+layers = 17

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bhfmn81fkxk0d"]
 
 [ext_resource type="PackedScene" uid="uid://qw2x0bvt0drt" path="res://scenes/main/main.tscn" id="1_aynem"]
-[ext_resource type="Shader" uid="uid://dlcu2c02r2wt2" path="res://resources/color_dither_2d.gdshader" id="1_rnotf"]
+[ext_resource type="Shader" uid="uid://dlcu2c02r2wt2" path="res://resources/shaders/color_dither_2d.gdshader" id="1_rnotf"]
 [ext_resource type="Texture2D" uid="uid://bg344q7i32n21" path="res://dither.png" id="2_h2qy3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aynem"]
@@ -34,16 +34,46 @@ render_target_update_mode = 4
 [node name="main" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_aynem")]
 
 [node name="RotationPivot" parent="SubViewportContainer/SubViewport/main/player/ThirdPersonCamera" index="0"]
-transform = Transform3D(0.999983, 0, 0, 0, 0.9397354, 0.34188575, 0, -0.34189522, 0.93970937, 0.260684, 3.9938395, 0)
+transform = Transform3D(0.999983, 0, 0, 0, 0.93971664, 0.34193754, 0, -0.34194696, 0.93969065, 10.010684, 1.5469058, 0)
 
 [node name="OffsetPivot" parent="SubViewportContainer/SubViewport/main/player/ThirdPersonCamera/RotationPivot" index="0"]
-transform = Transform3D(1, 1.4346944e-07, 2.919582e-07, -7.8844437e-07, 1.0009484, 0.00021919608, -5.1922343e-06, -0.00022783875, 1.0008779, 0, 0, 0)
+transform = Transform3D(0.99999493, 1.4346944e-07, 2.919582e-07, -7.890975e-07, 1.0011042, 0.0002593696, -5.1934935e-06, -0.00026515126, 1.0010588, 0, 0, 0)
 
 [node name="CameraMarker" parent="SubViewportContainer/SubViewport/main/player/ThirdPersonCamera/RotationPivot/OffsetPivot/CameraSpringArm" index="0"]
-transform = Transform3D(1, -2.3757993e-06, -7.038587e-06, 1.453782e-06, 1.0011144, 0.00023838878, 3.92874e-06, 1.3798475e-05, 1.0020328, -6.854534e-07, -2.2888184e-05, 2.3080437)
+transform = Transform3D(0.9999945, -2.3761565e-06, -7.040645e-06, 1.4537352e-06, 1.0010964, 0.00023770332, 3.928542e-06, 1.5825033e-05, 1.0019908, -9.536743e-07, -0.00030088425, 1.5583968)
 
 [node name="Camera" parent="SubViewportContainer/SubViewport/main/player/ThirdPersonCamera" index="2"]
-transform = Transform3D(1, 1.878295e-08, -5.1605735e-08, 0, 0.9396926, 0.34202012, 5.4917678e-08, -0.34202012, 0.9396926, 0.2606839, 4.783904, 2.17069)
+transform = Transform3D(1, 1.1125287e-06, -3.0566475e-06, 0, 0.9396926, 0.34202012, 3.2528164e-06, -0.34202012, 0.9396926, 10.010679, 2.0804582, 1.4659207)
+
+[node name="Skeleton3D" parent="SubViewportContainer/SubViewport/main/player/Node3D" index="0"]
+bones/0/rotation = Quaternion(0.021830589, 0.010789106, 0.0014678979, 0.9997024)
+bones/1/rotation = Quaternion(-0.05227933, 0.007447795, 0.010329818, 0.99855137)
+bones/2/rotation = Quaternion(0.01074934, 0.013239373, -0.0058384454, 0.99983764)
+bones/3/rotation = Quaternion(-0.02823573, 0.013837675, -0.010292106, 0.99945253)
+bones/4/rotation = Quaternion(0.027806703, -0.0062710135, -0.018312244, 0.9994259)
+bones/5/rotation = Quaternion(0.00062244147, -0.03261673, 0.0043116994, 0.99945843)
+bones/7/rotation = Quaternion(-0.6316635, -0.4197712, 0.4620523, -0.4596749)
+bones/8/rotation = Quaternion(0.5511063, 0.0377183, -0.2218231, 0.80352587)
+bones/9/rotation = Quaternion(-0.011911441, 0.032713152, 0.2654034, 0.9635088)
+bones/10/rotation = Quaternion(0.26251182, 0.41515005, -0.006361416, 0.8710325)
+bones/11/rotation = Quaternion(-0.0300649, 0.2541839, -0.03171134, 0.9661683)
+bones/12/rotation = Quaternion(0.20811084, -0.0013475616, 0.07890364, 0.9749166)
+bones/13/rotation = Quaternion(0.27214295, -0.023298478, -0.15439847, 0.9495034)
+bones/15/rotation = Quaternion(0.5700081, -0.4230274, 0.49252582, 0.5035443)
+bones/16/rotation = Quaternion(0.55545646, -0.1018777, 0.026602682, 0.82485235)
+bones/17/rotation = Quaternion(-0.018913452, -0.010124672, -0.29321134, 0.955807)
+bones/18/rotation = Quaternion(0.038920958, -0.19248828, -0.041929, 0.9796303)
+bones/19/rotation = Quaternion(0.10995251, 0.02406206, -0.021201884, 0.9934193)
+bones/20/rotation = Quaternion(0.1937279, 0.0013761485, 0.017730549, 0.9808942)
+bones/21/rotation = Quaternion(0.20407182, -0.04659809, 0.21431412, 0.9540717)
+bones/23/rotation = Quaternion(-0.0018441007, 0.2798471, 0.9600255, 0.0057771876)
+bones/24/rotation = Quaternion(-0.24890973, -0.034284726, 0.0048560863, 0.96790755)
+bones/25/rotation = Quaternion(0.47688976, 0.025494393, 0.091797985, 0.8737846)
+bones/26/rotation = Quaternion(0.33852062, -0.0629816, 0.022805199, 0.9385719)
+bones/28/rotation = Quaternion(-0.11387834, -0.03700649, 0.99263245, -0.018520474)
+bones/29/rotation = Quaternion(-0.13767883, -0.07365502, 0.022349063, 0.98748165)
+bones/30/rotation = Quaternion(0.5786169, -0.038276073, -0.13652945, 0.80317944)
+bones/31/rotation = Quaternion(0.3510358, 0.06425956, -0.024292717, 0.9338386)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_rnotf")
