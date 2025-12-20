@@ -1,12 +1,10 @@
-[gd_scene load_steps=27 format=4 uid="uid://b56k3gpos5bfl"]
+[gd_scene load_steps=26 format=4 uid="uid://b56k3gpos5bfl"]
 
 [ext_resource type="Script" uid="uid://rf1uvfx0p5xr" path="res://scenes/player/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://wmf2eu0uuhrg" path="res://addons/third-person-camera/third_person_camera/ThirdPersonCamera.tscn" id="2_g2els"]
 [ext_resource type="Animation" uid="uid://cb116d1vkcm1m" path="res://scenes/player/models/run_anim.res" id="3_gmlin"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g2els"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmlin"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbtc6"]
 
@@ -1231,36 +1229,35 @@ shape = SubResource("CapsuleShape3D_g2els")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5469058, 0)
 distance_from_pivot = 1.56
 current = true
-follow_target = 1
-mouse_x_sensitiveness = 12.0
+follow_target = 2
 cull_mask = 1048573
 
 [node name="RotationPivot" parent="ThirdPersonCamera" index="0"]
-transform = Transform3D(0.999983, 0, 0, 0, 0.93971664, 0.34193754, 0, -0.34194696, 0.93969065, 0, 0.5469058, 0)
+transform = Transform3D(0.999983, 0, 0, 0, 0.93969405, 0.34199953, 0, -0.34200898, 0.93966806, 0, 0.5469058, 0)
 
 [node name="OffsetPivot" parent="ThirdPersonCamera/RotationPivot" index="0"]
-transform = Transform3D(0.9999999, 1.4346942e-07, 2.9195817e-07, -8.1367966e-07, 1.00514, 0.0013287961, -5.247481e-06, -0.0013710856, 1.0050938, 0, 0, 0)
+transform = Transform3D(0.9947368, 1.4346942e-07, 2.9195817e-07, -8.1400185e-07, 1.005168, 0.0013379753, -5.2482183e-06, -0.001380086, 1.0051328, 0, 0, 0)
 
 [node name="CameraSpringArm" parent="ThirdPersonCamera/RotationPivot/OffsetPivot" index="0"]
 spring_length = 1.56
 
 [node name="CameraMarker" parent="ThirdPersonCamera/RotationPivot/OffsetPivot/CameraSpringArm" index="0"]
-transform = Transform3D(0.999984, -2.3891532e-06, -7.1028876e-06, 1.4478217e-06, 1.0002298, 0.0002296567, 3.928626e-06, 9.7721815e-05, 1.0015326, -4.5288215e-07, -0.0019325614, 1.552138)
+transform = Transform3D(0.9999944, -2.3895634e-06, -7.1072614e-06, 1.4479117e-06, 0.9984405, 0.00022572279, 3.917328e-06, 0.00011101365, 1.0001922, -4.5524382e-07, -0.0020489693, 1.5520777)
 
 [node name="Camera" parent="ThirdPersonCamera" index="2"]
-transform = Transform3D(1, -6.7538485e-15, 1.8556047e-14, 0, 0.9396926, 0.34202012, -1.9746933e-14, -0.34202012, 0.9396926, 2.8947436e-14, 1.0804574, 1.4659204)
+transform = Transform3D(1, -1e-45, 4e-45, 0, 0.9396926, 0.34202012, -4e-45, -0.34202012, 0.9396926, 6e-45, 1.0804574, 1.4659204)
 cull_mask = 1048573
 current = true
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
 handle_input_locally = false
-canvas_cull_mask = 4293918722
+canvas_cull_mask = 4293918751
 size = Vector2i(480, 270)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4564476, 2.0067253)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2064476, 2.0067253)
 cull_mask = 16
 
 [node name="Node3D" type="Node3D" parent="."]
@@ -1500,8 +1497,7 @@ bones/32/rotation = Quaternion(-2.3711864e-11, 4.6973062e-17, 1.1138188e-27, 1)
 bones/32/scale = Vector3(1, 1, 1)
 
 [node name="BASE_Low_Poly_Man" type="MeshInstance3D" parent="Node3D/Skeleton3D"]
-layers = 16
-material_overlay = SubResource("ShaderMaterial_gmlin")
+layers = 17
 mesh = SubResource("ArrayMesh_lvxji")
 skin = SubResource("Skin_p47bc")
 
@@ -1519,6 +1515,12 @@ parameters/walk_left/blend_amount = 0.0
 parameters/walk_backwards/blend_amount = 0.0
 parameters/run/blend_amount = 0.0
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="head"]
+
+[node name="RayCast3D" type="RayCast3D" parent="head"]
+target_position = Vector3(0, 0, -2)
 
 [editable path="ThirdPersonCamera"]

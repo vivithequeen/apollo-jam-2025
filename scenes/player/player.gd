@@ -40,9 +40,9 @@ func _physics_process(delta: float) -> void:
 	tween.parallel()
 	tween.tween_property(self, "walk_backwards", (1.0 if input_dir.y < 0 else 0.0), delta*10.0);
 	tween.parallel()
-	tween.tween_property(self, "walk_right", (1.0 if     input_dir.x > 0 else 0.0), delta*10.0);
+	tween.tween_property(self, "walk_right", (0.75 if     input_dir.x > 0 else 0.0), delta*10.0);
 	tween.parallel()
-	tween.tween_property(self, "walk_left", (1.0 if     input_dir.x < 0 else 0.0), delta*10.0);
+	tween.tween_property(self, "walk_left", (0.75 if     input_dir.x < 0 else 0.0), delta*10.0);
 	tween.parallel()
 	
 	tween.tween_property(self, "run", 1.0 if (is_sprint and input_dir) else 0.0, delta*10.0);
@@ -59,7 +59,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	$head.global_rotation = $ThirdPersonCamera/Camera.global_rotation
+
 	$SubViewport/Camera3D.global_position = $ThirdPersonCamera/Camera.global_position
 	$SubViewport/Camera3D.global_rotation = $ThirdPersonCamera/Camera.global_rotation
 
