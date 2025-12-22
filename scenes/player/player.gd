@@ -16,8 +16,15 @@ var walk_left = 0.0;
 var run = 0.0
 
 var blood_area_area = null;
+
+
+var running_timer = 0;
+
+var is_walking : bool = false;
+var is_sprint
 func _ready() -> void:
 	update_mouse_mode()
+
 
 func _physics_process(delta: float) -> void:
 	if(blood_area_area):
@@ -28,7 +35,7 @@ func _physics_process(delta: float) -> void:
 		get_tree().call_group("ui","hide_tooltip")
 
 
-	var is_sprint = Input.is_action_pressed("sprint")
+	is_sprint = Input.is_action_pressed("sprint")
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -44,6 +51,15 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+	if(!is_walking and input_dir):
+		print(is_walking)
+		is_walking = true;
+		$audio_manager.begin()
+	if(is_walking and !input_dir):
+		is_walking = false
+	
+
 
 	var tween = get_parent().create_tween()
 	tween.tween_property(self, "walk_forwards", (1.0 if   input_dir.y > 0 else 0.0), delta*10.0);
@@ -64,6 +80,13 @@ func _physics_process(delta: float) -> void:
 	anim_tree["parameters/run/blend_amount"] = run
 	
 
+	if(is_sprint):
+		running_timer += delta;
+	else:
+		running_timer = 0;
+	if(running_timer > 3.0):
+		get_tree().call_group("monster", "hear_something", global_position)
+		running_timer = 0;
 
 
 	move_and_slide()
@@ -72,8 +95,7 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	$head.global_rotation = $ThirdPersonCamera/Camera.global_rotation
 
-	$SubViewport/Camera3D.global_position = $ThirdPersonCamera/Camera.global_position
-	$SubViewport/Camera3D.global_rotation = $ThirdPersonCamera/Camera.global_rotation
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

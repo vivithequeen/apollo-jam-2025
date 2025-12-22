@@ -20,41 +20,6 @@ render_target_update_mode = 4
 
 [node name="main" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_aynem")]
 
-[node name="Skeleton3D" parent="SubViewportContainer/SubViewport/main/player/Node3D" index="0"]
-bones/0/rotation = Quaternion(0.011421209, -0.037303925, 0.019339494, 0.99905163)
-bones/1/rotation = Quaternion(-0.055257805, 0.012945371, 0.005884817, 0.9983709)
-bones/2/rotation = Quaternion(0.013031114, 0.0254042, -0.008885924, 0.99955285)
-bones/3/rotation = Quaternion(-0.025757251, 0.026008546, -0.013005358, 0.9992452)
-bones/4/rotation = Quaternion(0.022834957, -0.0031237009, -0.021107385, 0.99951154)
-bones/5/rotation = Quaternion(0.0038734062, -0.0201534, -0.011910201, 0.99971855)
-bones/7/rotation = Quaternion(-0.6110618, -0.439817, 0.4942944, -0.43455458)
-bones/8/rotation = Quaternion(0.5306038, 0.044460878, -0.33216652, 0.77855515)
-bones/9/rotation = Quaternion(-0.009556586, 0.033152975, 0.21293606, 0.97645676)
-bones/10/rotation = Quaternion(0.1928774, 0.31092697, 0.027479108, 0.93025136)
-bones/11/rotation = Quaternion(0.030475764, 0.29201448, -0.008773879, 0.95588803)
-bones/12/rotation = Quaternion(0.20712541, -0.0013405479, 0.07849308, 0.97515965)
-bones/13/rotation = Quaternion(0.27117997, -0.023567013, -0.1547705, 0.9497116)
-bones/15/rotation = Quaternion(0.5697917, -0.42434096, 0.47672254, 0.5176947)
-bones/16/rotation = Quaternion(0.51360744, -0.15158798, -0.11331737, 0.83689165)
-bones/17/rotation = Quaternion(-0.02328367, -0.009875194, -0.36096385, 0.93223685)
-bones/18/rotation = Quaternion(-0.040727213, -0.11236931, -0.09561431, 0.98821676)
-bones/19/rotation = Quaternion(0.17368664, 0.03318221, -0.02951656, 0.98379916)
-bones/20/rotation = Quaternion(0.19998899, 0.0014249979, 0.018105363, 0.9796298)
-bones/21/rotation = Quaternion(0.21018153, -0.04787619, 0.21438204, 0.9526658)
-bones/23/rotation = Quaternion(0.023628004, 0.2621223, 0.96454793, 0.019518405)
-bones/24/rotation = Quaternion(-0.16242728, -0.036024958, -0.024960794, 0.98574674)
-bones/25/rotation = Quaternion(0.42880148, 0.04768231, 0.1138814, 0.8949228)
-bones/26/rotation = Quaternion(0.43582812, -0.07182121, 0.034202516, 0.89650756)
-bones/28/rotation = Quaternion(-0.11506869, -0.14855897, 0.9813627, 0.04020782)
-bones/29/rotation = Quaternion(-0.20144667, -0.08251529, -0.015029887, 0.97590196)
-bones/30/rotation = Quaternion(0.46227038, -0.01759972, -0.049082216, 0.88520473)
-bones/31/rotation = Quaternion(0.60560036, 0.07000566, -0.060408033, 0.7903786)
-
 [node name="ui" parent="." instance=ExtResource("1_h2qy3")]
 scale = Vector2(4, 4)
 mouse_filter = 2
-metadata/_edit_lock_ = true
-
-[editable path="SubViewportContainer/SubViewport/main"]
-[editable path="SubViewportContainer/SubViewport/main/player"]
-[editable path="SubViewportContainer/SubViewport/main/player/ThirdPersonCamera"]

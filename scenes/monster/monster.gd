@@ -1,16 +1,33 @@
 extends CharacterBody3D
 
-@export var movement_speed: float = 4.0
+@export var movement_speed: float = 3.0
 @onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
 
 @export var player : CharacterBody3D
+@export var random_points : Node3D
+
+enum States {
+	ROAM,
+	CHASE,
+}
+
+
+var state : States = States.ROAM
+
 func _ready() -> void:
+	if(state == States.ROAM):
+		go_to_random_point()
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 
 func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 
 func _physics_process(delta):
+	if(state == States.ROAM):
+		if(navigation_agent.is_navigation_finished()):
+			go_to_random_point()
+	
+
 	# Do not query when the map has never synchronized and is empty.
 	if NavigationServer3D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
 		return
@@ -29,5 +46,18 @@ func _on_velocity_computed(safe_velocity: Vector3):
 	move_and_slide()
 
 
-func _on_get_player_loc_timeout() -> void:
-	set_movement_target(player.global_position)
+
+func go_to_random_point():
+	var point : Vector3
+	point = random_points.get_children().pick_random().global_position
+	set_movement_target(point)
+
+func hear_something(location : Vector3) -> void:
+	return
+	set_movement_target(location)
+
+
+
+	
+#if(state == States.ROAM):
+#	go_to_random_point()
