@@ -14,10 +14,20 @@ var walk_backwards = 0.0;
 var walk_right = 0.0;
 var walk_left = 0.0;
 var run = 0.0
+
+var blood_area_area = null;
 func _ready() -> void:
 	update_mouse_mode()
 
 func _physics_process(delta: float) -> void:
+	if(blood_area_area):
+		if(Input.is_action_just_pressed("interact")):
+			blood_area_area.clean_up()
+		get_tree().call_group("ui","show_tooltip", "press [e] to clean up")
+	else:
+		get_tree().call_group("ui","hide_tooltip")
+
+
 	var is_sprint = Input.is_action_pressed("sprint")
 	# Add the gravity.
 	if not is_on_floor():
@@ -77,3 +87,12 @@ func update_mouse_mode():
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+
+func _on_blood_area_area_entered(area: Area3D) -> void:
+	blood_area_area = area
+
+
+func _on_blood_area_area_exited(area: Area3D) -> void:
+	blood_area_area = null

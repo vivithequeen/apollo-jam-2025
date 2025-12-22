@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://c58nsohvnvb0s"]
+
+[ext_resource type="Script" uid="uid://n62nrhpfti00" path="res://scenes/ui/ui.gd" id="1_u7n8c"]
+[ext_resource type="FontFile" uid="uid://blxkqpgg22api" path="res://resources/fonts/MetalMania-Regular.ttf" id="2_f5cxw"]
+
+[node name="ui" type="Control" groups=["ui"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u7n8c")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+mouse_filter = 2
+
+[node name="tooltip" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f5cxw")
+theme_override_font_sizes/font_size = 16
+text = "press like e or smth"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+mouse_filter = 2

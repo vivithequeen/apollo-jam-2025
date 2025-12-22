@@ -1,0 +1,42 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://blxkqpgg22api"
+path="res://.godot/imported/MetalMania-Regular.ttf-0a072568d209472eb34e6f31595a47cd.fontdata"
+
+[deps]
+
+source_file="res://resources/fonts/MetalMania-Regular.ttf"
+dest_files=["res://.godot/imported/MetalMania-Regular.ttf-0a072568d209472eb34e6f31595a47cd.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=0
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+modulate_color_glyphs=false
+hinting=1
+subpixel_positioning=4
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0),
+&"variation_embolden": 0.0
+}]
+language_support={}
+script_support={}
+opentype_features={}

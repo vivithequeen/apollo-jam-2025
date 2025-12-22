@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://ehy64ydha2b5"]
+
+[ext_resource type="Texture2D" uid="uid://bd5d35uhlwid6" path="res://resources/Retro PSX Style Mansion Assets - Demo/Textures/candle_holder_texture.png" id="1_5divp"]
+[ext_resource type="ArrayMesh" uid="uid://dav4jopguktpy" path="res://resources/Retro PSX Style Mansion Assets - Demo/Meshes/OBJ/Decor/candle_holder.obj" id="2_8vpes"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t8pqx"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_5divp")
+texture_filter = 2
+
+[node name="candle" type="Node3D"]
+
+[node name="CandleHolder" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -2.3469353, 0)
+material_override = SubResource("StandardMaterial3D_t8pqx")
+mesh = ExtResource("2_8vpes")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17418602, 0.4994394, 0.44599006)
+light_energy = 0.25
+shadow_enabled = true
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17955714, 0.4905855, 0.44599006)
+light_energy = 0.25
+shadow_enabled = true

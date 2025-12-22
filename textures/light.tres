@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://nftrbnkwbacr"]
+
+[ext_resource type="Texture2D" uid="uid://detob8dqoki08" path="res://textures/light.png" id="1_yfow7"]
+
+[resource]
+shading_mode = 0
+albedo_color = Color(0.16206557, 0.1620656, 0.16206554, 1)
+albedo_texture = ExtResource("1_yfow7")
+texture_filter = 2

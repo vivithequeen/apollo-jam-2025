@@ -1,22 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhfmn81fkxk0d"]
+[gd_scene load_steps=4 format=3 uid="uid://bhfmn81fkxk0d"]
 
 [ext_resource type="PackedScene" uid="uid://qw2x0bvt0drt" path="res://scenes/main/main.tscn" id="1_aynem"]
-[ext_resource type="Shader" uid="uid://dlcu2c02r2wt2" path="res://resources/shaders/color_dither_2d.gdshader" id="1_rnotf"]
-[ext_resource type="Texture2D" uid="uid://bg344q7i32n21" path="res://dither.png" id="2_h2qy3"]
+[ext_resource type="PackedScene" uid="uid://c58nsohvnvb0s" path="res://scenes/ui/ui.tscn" id="1_h2qy3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aynem"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rnotf"]
-shader = ExtResource("1_rnotf")
-shader_parameter/dither_pixel_size = 1.0
-shader_parameter/dither_pixel_offset = Vector2(0, 0)
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/albedo_strength = 1.0
-shader_parameter/dither_palette = ExtResource("2_h2qy3")
-shader_parameter/alpha_dither_pixel_offset = Vector2(0, 0)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_aynem"]
-viewport_path = NodePath("SubViewportContainer/SubViewport/main/player/SubViewport")
 
 [node name="master" type="Node"]
 
@@ -34,42 +21,39 @@ render_target_update_mode = 4
 [node name="main" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_aynem")]
 
 [node name="Skeleton3D" parent="SubViewportContainer/SubViewport/main/player/Node3D" index="0"]
-bones/0/rotation = Quaternion(-0.0062745996, 0.071401544, -0.021155154, 0.99720365)
-bones/1/rotation = Quaternion(-0.04538354, -0.015375227, 0.020514164, 0.99864066)
-bones/2/rotation = Quaternion(0.01361081, -0.038004354, 0.0008055094, 0.99918455)
-bones/3/rotation = Quaternion(-0.026809368, -0.037258785, -0.003812522, 0.9989387)
-bones/4/rotation = Quaternion(0.024757937, 0.00055290427, -0.01880693, 0.9995164)
-bones/5/rotation = Quaternion(-0.0021908039, 0.0009123263, -0.0094826715, 0.9999523)
-bones/7/rotation = Quaternion(-0.6461213, -0.4056157, 0.39109933, -0.5148248)
-bones/8/rotation = Quaternion(0.46015024, 0.039561, -0.0977038, 0.88156146)
-bones/9/rotation = Quaternion(-0.024440525, 0.028447784, 0.544565, 0.83787966)
-bones/10/rotation = Quaternion(-0.08495251, 0.12109484, 0.15872364, 0.97617924)
-bones/11/rotation = Quaternion(-0.055956237, 0.2346719, -0.035916775, 0.9697979)
-bones/12/rotation = Quaternion(0.20146774, -0.001298955, 0.076136574, 0.97653073)
-bones/13/rotation = Quaternion(0.2656436, -0.025108919, -0.15690236, 0.95088637)
-bones/15/rotation = Quaternion(0.5525326, -0.43481335, 0.5446593, 0.45715573)
-bones/16/rotation = Quaternion(0.5451569, -0.21151616, 0.286489, 0.7589394)
-bones/17/rotation = Quaternion(-0.01651659, -0.010237672, -0.2560578, 0.96646625)
-bones/18/rotation = Quaternion(0.093932614, -0.23779207, 0.03612194, 0.96608835)
-bones/19/rotation = Quaternion(0.0151400035, 0.012602816, -0.018730026, 0.9996306)
-bones/20/rotation = Quaternion(0.19511668, 0.0013870165, 0.017813612, 0.9806173)
-bones/21/rotation = Quaternion(0.20542684, -0.046881642, 0.21433061, 0.95376325)
-bones/23/rotation = Quaternion(0.020814015, -0.024247501, 0.9974644, -0.06359052)
-bones/24/rotation = Quaternion(-0.46832678, 0.054035723, 0.004931316, 0.8818877)
-bones/25/rotation = Quaternion(0.32306972, 0.015373936, -0.025798116, 0.94589853)
-bones/26/rotation = Quaternion(0.33758754, -0.06289511, 0.022696888, 0.93891627)
-bones/28/rotation = Quaternion(-0.08426663, 0.20911825, 0.97334313, -0.04209383)
-bones/29/rotation = Quaternion(-0.24628435, -0.018770726, 0.027312223, 0.9686309)
-bones/30/rotation = Quaternion(0.45276278, -0.011466067, -0.14942831, 0.8789457)
-bones/31/rotation = Quaternion(0.35813662, 0.064914994, -0.02511834, 0.9310711)
+bones/0/rotation = Quaternion(0.011421209, -0.037303925, 0.019339494, 0.99905163)
+bones/1/rotation = Quaternion(-0.055257805, 0.012945371, 0.005884817, 0.9983709)
+bones/2/rotation = Quaternion(0.013031114, 0.0254042, -0.008885924, 0.99955285)
+bones/3/rotation = Quaternion(-0.025757251, 0.026008546, -0.013005358, 0.9992452)
+bones/4/rotation = Quaternion(0.022834957, -0.0031237009, -0.021107385, 0.99951154)
+bones/5/rotation = Quaternion(0.0038734062, -0.0201534, -0.011910201, 0.99971855)
+bones/7/rotation = Quaternion(-0.6110618, -0.439817, 0.4942944, -0.43455458)
+bones/8/rotation = Quaternion(0.5306038, 0.044460878, -0.33216652, 0.77855515)
+bones/9/rotation = Quaternion(-0.009556586, 0.033152975, 0.21293606, 0.97645676)
+bones/10/rotation = Quaternion(0.1928774, 0.31092697, 0.027479108, 0.93025136)
+bones/11/rotation = Quaternion(0.030475764, 0.29201448, -0.008773879, 0.95588803)
+bones/12/rotation = Quaternion(0.20712541, -0.0013405479, 0.07849308, 0.97515965)
+bones/13/rotation = Quaternion(0.27117997, -0.023567013, -0.1547705, 0.9497116)
+bones/15/rotation = Quaternion(0.5697917, -0.42434096, 0.47672254, 0.5176947)
+bones/16/rotation = Quaternion(0.51360744, -0.15158798, -0.11331737, 0.83689165)
+bones/17/rotation = Quaternion(-0.02328367, -0.009875194, -0.36096385, 0.93223685)
+bones/18/rotation = Quaternion(-0.040727213, -0.11236931, -0.09561431, 0.98821676)
+bones/19/rotation = Quaternion(0.17368664, 0.03318221, -0.02951656, 0.98379916)
+bones/20/rotation = Quaternion(0.19998899, 0.0014249979, 0.018105363, 0.9796298)
+bones/21/rotation = Quaternion(0.21018153, -0.04787619, 0.21438204, 0.9526658)
+bones/23/rotation = Quaternion(0.023628004, 0.2621223, 0.96454793, 0.019518405)
+bones/24/rotation = Quaternion(-0.16242728, -0.036024958, -0.024960794, 0.98574674)
+bones/25/rotation = Quaternion(0.42880148, 0.04768231, 0.1138814, 0.8949228)
+bones/26/rotation = Quaternion(0.43582812, -0.07182121, 0.034202516, 0.89650756)
+bones/28/rotation = Quaternion(-0.11506869, -0.14855897, 0.9813627, 0.04020782)
+bones/29/rotation = Quaternion(-0.20144667, -0.08251529, -0.015029887, 0.97590196)
+bones/30/rotation = Quaternion(0.46227038, -0.01759972, -0.049082216, 0.88520473)
+bones/31/rotation = Quaternion(0.60560036, 0.07000566, -0.060408033, 0.7903786)
 
-[node name="TextureRect" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_rnotf")
-offset_right = 480.0
-offset_bottom = 270.0
+[node name="ui" parent="." instance=ExtResource("1_h2qy3")]
 scale = Vector2(4, 4)
 mouse_filter = 2
-texture = SubResource("ViewportTexture_aynem")
+metadata/_edit_lock_ = true
 
 [editable path="SubViewportContainer/SubViewport/main"]
 [editable path="SubViewportContainer/SubViewport/main/player"]

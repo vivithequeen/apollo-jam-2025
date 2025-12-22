@@ -1,18 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://4vxkmo8k44hb"]
 
-[ext_resource type="Texture2D" uid="uid://8xfh7g8w13il" path="res://scenes/parts/testing_image.png" id="1_yjoyq"]
+[ext_resource type="Script" uid="uid://c0gss6svi7r7f" path="res://scenes/parts/body_part.gd" id="1_twuew"]
+[ext_resource type="Texture2D" uid="uid://cmq0ou4icek2t" path="res://textures/blood1.png" id="2_twuew"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twuew"]
-albedo_texture = ExtResource("1_yjoyq")
-uv1_scale = Vector3(2.45, 2.45, 2.45)
+[sub_resource type="BoxShape3D" id="BoxShape3D_twuew"]
+size = Vector3(2, 2, 0.5)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_b3ikg"]
-radius = 0.25
-height = 1.0
+[node name="BodyPart" type="Area3D"]
+script = ExtResource("1_twuew")
 
-[node name="BodyPart" type="Node3D"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_twuew")
-mesh = SubResource("CapsuleMesh_b3ikg")
+shape = SubResource("BoxShape3D_twuew")
+
+[node name="Decal" type="Decal" parent="."]
+texture_albedo = ExtResource("2_twuew")
