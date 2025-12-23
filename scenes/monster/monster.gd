@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var movement_speed: float = 3.0
+@export var movement_speed: float = 2.5
 @onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
 
 @export var player : CharacterBody3D
@@ -23,6 +23,9 @@ func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 
 func _physics_process(delta):
+	look_at(navigation_agent.get_next_path_position(),Vector3.UP)
+	rotation*=Vector3(0,1,0)
+	rotation.y+=PI
 	if(state == States.ROAM):
 		if(navigation_agent.is_navigation_finished()):
 			go_to_random_point()
