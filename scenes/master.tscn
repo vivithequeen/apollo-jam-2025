@@ -1,25 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhfmn81fkxk0d"]
+[gd_scene load_steps=6 format=3 uid="uid://bhfmn81fkxk0d"]
 
 [ext_resource type="PackedScene" uid="uid://qw2x0bvt0drt" path="res://scenes/main/main.tscn" id="1_aynem"]
 [ext_resource type="PackedScene" uid="uid://c58nsohvnvb0s" path="res://scenes/ui/ui.tscn" id="1_h2qy3"]
+[ext_resource type="Script" uid="uid://bdgdfan0bawks" path="res://scenes/master.gd" id="1_q3f5g"]
+[ext_resource type="AudioStream" uid="uid://c7p2cupl63e88" path="res://resources/sounds/music/ambiant.mp3" id="3_rnotf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aynem"]
 
 [node name="master" type="Node"]
+script = ExtResource("1_q3f5g")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+[node name="main_game" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_aynem")
 offset_right = 480.0
 offset_bottom = 270.0
 scale = Vector2(4, 4)
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="main_game"]
 handle_input_locally = false
+use_occlusion_culling = true
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
 size = Vector2i(480, 270)
 render_target_update_mode = 4
 
-[node name="main" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_aynem")]
+[node name="main" parent="main_game/SubViewport" instance=ExtResource("1_aynem")]
 
 [node name="ui" parent="." instance=ExtResource("1_h2qy3")]
 scale = Vector2(4, 4)
 mouse_filter = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rnotf")
+volume_db = -5.871
+autoplay = true

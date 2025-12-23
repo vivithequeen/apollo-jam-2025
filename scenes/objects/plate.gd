@@ -11,7 +11,7 @@ func clean_up():
 	active = true;
 	Memory.items_left -= 1
 	var tween = get_tree().create_tween()
-	
-	tween.tween_property($Decal,"modulate:a",0,0.5)
-	
+	$AudioStreamPlayer3D.play()
+	get_tree().call_group("monster","hear_something",global_position)
+	tween.tween_property($Mesh,"transparency",0,$AudioStreamPlayer3D.stream.get_length())
 	tween.tween_callback(queue_free)

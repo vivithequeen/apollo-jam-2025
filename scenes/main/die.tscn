@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkulc8ji8x1i"]
+
+[ext_resource type="Script" uid="uid://h8mlbhkkginq" path="res://scenes/main/die.gd" id="1_yacrv"]
+[ext_resource type="AudioStream" uid="uid://nc6itsuo56ei" path="res://resources/sounds/monster_footsteps/crack.mp3" id="2_im5dx"]
+[ext_resource type="FontFile" uid="uid://blxkqpgg22api" path="res://resources/fonts/MetalMania-Regular.ttf" id="3_im5dx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_im5dx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="die" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+script = ExtResource("1_yacrv")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_im5dx")
+volume_db = -10.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 162.0
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_im5dx")
+theme_override_font_sizes/font_size = 66
+text = "YOU DIED."
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = 109.0
+offset_right = 480.0
+offset_bottom = 271.0
+
+[node name="Button" type="Button" parent="CenterContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_im5dx")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_im5dx")
+text = "TRY AGAIN."
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="pressed" from="CenterContainer2/Button" to="." method="_on_button_pressed"]

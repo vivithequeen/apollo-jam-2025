@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0nwbr6w80ksu"]
+
+[ext_resource type="ArrayMesh" uid="uid://doudjow4v4d14" path="res://resources/Retro PSX Style Mansion Assets - Demo/Meshes/OBJ/Items/plate.obj" id="1_krr20"]
+[ext_resource type="Script" uid="uid://bfl8di84pd0os" path="res://scenes/objects/plate.gd" id="1_vlv0k"]
+[ext_resource type="AudioStream" uid="uid://drlpar8a5jgwi" path="res://resources/sounds/cleaning/plates.mp3" id="3_qtx58"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vlv0k"]
+size = Vector3(2, 2, 0.5)
+
+[node name="Plate" type="Area3D"]
+script = ExtResource("1_vlv0k")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08360619, 0)
+mesh = ExtResource("1_krr20")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_vlv0k")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_qtx58")
+
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]

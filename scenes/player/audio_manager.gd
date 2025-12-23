@@ -25,6 +25,8 @@ func _on_step_timeout():
 	$foot.stream = footstep_sounds.pick_random()
 	$foot.pitch_scale = randf_range(0.8,1.2)
 	$foot.play()
+	if(randi_range(0,1) == 0):
+		get_tree().call_group("monster", "hear_something_soft", player.global_position)
 
 func begin():
 	$foot.stream = footstep_sounds.pick_random()
