@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://qw2x0bvt0drt"]
+[gd_scene load_steps=8 format=3 uid="uid://qw2x0bvt0drt"]
 
 [ext_resource type="PackedScene" uid="uid://b56k3gpos5bfl" path="res://scenes/player/player.tscn" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://bxbao3qkgyq73" path="res://scenes/main/main.gd" id="1_ow5a4"]
@@ -7,37 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://4vxkmo8k44hb" path="res://scenes/parts/body_part.tscn" id="11_ouso4"]
 [ext_resource type="PackedScene" uid="uid://uao8q3etrkjy" path="res://scenes/monster/monster.tscn" id="14_7smn1"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hyk8p"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_iuonh"]
-sky_material = SubResource("ProceduralSkyMaterial_hyk8p")
-
-[sub_resource type="Environment" id="Environment_k2fmo"]
-background_mode = 1
-sky = SubResource("Sky_iuonh")
-tonemap_mode = 2
-ssr_enabled = true
-ssao_enabled = true
-ssil_enabled = true
-sdfgi_enabled = true
-glow_enabled = true
-volumetric_fog_enabled = true
-adjustment_enabled = true
-adjustment_brightness = 1.4
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_hujxm"]
 size = Vector3(2.75, 1, 2.5)
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_ow5a4")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_k2fmo")
-
 [node name="player" parent="." instance=ExtResource("1_hyk8p")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18.44424, 0.515625, -5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.1942406, 0.015625, -5)
 
 [node name="BodyPart" parent="." instance=ExtResource("11_ouso4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.765972, -0.74999994, -4.1521072)
