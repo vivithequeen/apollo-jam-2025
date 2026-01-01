@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://488wjoagmfe6"
-path.s3tc="res://.godot/imported/clip.png-b88af128d9765ee842c60c6e4c027bc0.s3tc.ctex"
+uid="uid://fva3ahstkjp0"
+path.s3tc="res://.godot/imported/walltrim.png-f391eb352c5fcf218207913b75a205de.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/special/clip.png"
-dest_files=["res://.godot/imported/clip.png-b88af128d9765ee842c60c6e4c027bc0.s3tc.ctex"]
+source_file="res://textures/walltrim.png"
+dest_files=["res://.godot/imported/walltrim.png-f391eb352c5fcf218207913b75a205de.s3tc.ctex"]
 
 [params]
 

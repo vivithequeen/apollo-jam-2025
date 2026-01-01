@@ -25,7 +25,7 @@ var yell_sounds = [
 	preload("res://resources/sounds/monster_footsteps/IHEARTHAT.mp3"),
 	preload("res://resources/sounds/monster_footsteps/whereisbro.mp3"),
 ]
-var state : States = States.ROAM
+var state : States = States.CHASE
 
 
 var investigate_timer = 0;

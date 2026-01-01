@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c4b7l6ksx1ek4"
+path="res://.godot/imported/map2.5.map-ff03d5b4f4ad6cb7d4cb3a0bf255271d.tres"
+
+[deps]
+
+source_file="res://maps/autosave/map2.5.map"
+dest_files=["res://.godot/imported/map2.5.map-ff03d5b4f4ad6cb7d4cb3a0bf255271d.tres"]
+
+[params]
+

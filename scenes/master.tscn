@@ -19,6 +19,7 @@ scale = Vector2(4, 4)
 [node name="SubViewport" type="SubViewport" parent="main_game"]
 handle_input_locally = false
 use_occlusion_culling = true
+debug_draw = 1
 audio_listener_enable_2d = true
 audio_listener_enable_3d = true
 size = Vector2i(480, 270)

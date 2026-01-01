@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://qw2x0bvt0drt"]
+[gd_scene load_steps=9 format=3 uid="uid://qw2x0bvt0drt"]
 
 [ext_resource type="PackedScene" uid="uid://b56k3gpos5bfl" path="res://scenes/player/player.tscn" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://bxbao3qkgyq73" path="res://scenes/main/main.gd" id="1_ow5a4"]
@@ -10,17 +10,26 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_hujxm"]
 size = Vector3(2.75, 1, 2.5)
 
+[sub_resource type="Environment" id="Environment_ow5a4"]
+background_mode = 1
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.3779188, 0.37791887, 0.37791884, 1)
+
 [node name="main" type="Node3D"]
 script = ExtResource("1_ow5a4")
 
 [node name="player" parent="." instance=ExtResource("1_hyk8p")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.1942406, 0.015625, -5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20.44424, 0.015625238, -5)
 
 [node name="BodyPart" parent="." instance=ExtResource("11_ouso4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.765972, -0.74999994, -4.1521072)
 
 [node name="Monster" parent="." node_paths=PackedStringArray("player", "random_points") instance=ExtResource("14_7smn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 7, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 4, -0.25)
 player = NodePath("../player")
 random_points = NodePath("../roam_points")
 
@@ -151,5 +160,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -5)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875, 0, 0)
 shape = SubResource("BoxShape3D_hujxm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ow5a4")
 
 [connection signal="body_entered" from="door" to="." method="_on_door_body_entered"]
